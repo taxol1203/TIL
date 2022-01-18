@@ -2,6 +2,7 @@
 [Log](#Log)    
 [Keyboard Event](#Keyboard-Event)    
 [Iterate key value object list](#Iterate-key-value-object-list)    
+[parse()](#parse())  
 
 ## Log
 ```js
@@ -41,4 +42,37 @@ for(key in vBasic){   // vBasic의 key들을 하나씩 가져옴
 		break;
 	}
 }
+```
+
+## parse()
+
+> 1970년 1월 1일부터  밀리초 수를 반환합니다.  
+
+```jsx
+const minute = 1000 * 60;
+const hour = minute * 60;
+const day = hour * 24;
+const year = day * 365;
+
+// Compute years
+const d = Date.parse("March 21, 2012");
+let years = Math.round(d / year); // 42
+```
+
+### 응용 - 1
+
+현재 일자와 선택 일자의 차이를 계산한다.
+
+```jsx
+const minute = 1000 * 60;
+const hour = minute * 60;
+const day = hour * 24;
+
+var date1 = "2021.12.10";
+var date2 = "2021.12.29";
+	
+var cDate1 = Date.parse(date1.replace(/\./g,'/'));  // .을 /로 변환 후, Date로 변환
+var cDate2 = Date.parse(date2.replace(/\./g,'/'));
+
+var diff_date = (cDate2 - cDate1) / day;
 ```
